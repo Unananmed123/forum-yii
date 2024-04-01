@@ -2,10 +2,26 @@
 
 namespace app\repository;
 
-use yii\base\Model;
+use app\entity\Users;
 
-
-class UsersRepository extends Model
+class UsersRepository
 {
+    public static function getUserById($id)
+    {
+        return Users::find()->where(['id' => $id])->one();
+    }
 
+    public static function getUserByLogin($login)
+    {
+        return Users::find()->where(['login' => $login])->one();
+    }
+
+    public function createUser($login, $password)
+    {
+        $user = new Users();
+        $user->login = $login;
+        $user->password = password_hash($password, PASSWORD_DEFAULT);
+        $user->save();
+        return $user->id;
+    }
 }
