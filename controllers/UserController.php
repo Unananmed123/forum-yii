@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use app\entity\Users;
 use app\models\RegistrationModel;
-use app\models\User;
+//use app\models\User;
 use app\models\UserForm;
 use app\repository\UsersRepository;
 use Yii;
@@ -15,6 +15,7 @@ class UserController extends Controller
 
     public function actionLogin()
     {
+        $this->view->title = 'Login';
         $model = new UserForm();
 
         if (!\Yii::$app->user->isGuest){

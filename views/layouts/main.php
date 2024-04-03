@@ -24,14 +24,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 <?php $this->beginBody() ?>
 
 <header>
-    <div class="container"
-    <a href="./" class="logo">5pda</a>
+    <div class="container">
+        <a href="/" class="logo">5pda</a>
     <nav>
         <ul>
             <li><a href="#">Случайная тема</a></li>
             <?php if(Yii::$app->user->isGuest): ?>
                 <li><a href="/user/login">Войти</a></li>
-                <li><a class="btn" href="/user/registarion">Регистрация</a></li>
+                <li><a class="btn" href="/user/registration">Регистрация</a></li>
             <?php else:?>
                 <?='<li>'.
                      Html::beginForm(['/user/logout']).

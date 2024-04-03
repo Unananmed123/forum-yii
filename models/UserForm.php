@@ -8,6 +8,15 @@ use yii\base\Model;
 
 class UserForm extends Model
 {
+    public  function attributeLabels()
+{
+    return [
+      'login' => 'Логин',
+      'password' => 'Пароль',
+    ];
+}
+
+
     public $login;
     public $password;
     public $_user = false;
@@ -18,8 +27,6 @@ class UserForm extends Model
             [
               [['login', 'password'], 'required'],
                 ['password', 'validatePassword'],
-//                ['login', 'label' => 'Логин'],
-//                ['password', 'label' => 'Пароль'],
             ];
     }
 
